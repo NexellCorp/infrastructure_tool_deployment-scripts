@@ -39,7 +39,6 @@ echo "Get source and install requirements ---->"
 cd /srv/${DIR}
 git clone http://git.nexell.co.kr:8081/nexell/infrastructure/linaro-license-protection.git
 git clone http://git.nexell.co.kr:8081/nexell/infrastructure/linaro-license-protection-configs.git configs
-pushd
 cd linaro-license-protection
 sudo pip install -r requirements.txt
 echo "end"
