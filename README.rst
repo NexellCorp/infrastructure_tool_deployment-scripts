@@ -52,7 +52,9 @@ This script run on target machine
    $ sudo apt-get update
    $ sudo apt-get install git
    $ git clone http://git.nexell.co.kr:8081/nexell/infrastructure/infrastructure-deployment-scripts
-3. run deploy-redmine-server-staging1.sh
-4. reboot
-5. run deploy-redmine-server-staging2.sh
-6. run deploy-redmine-plugins.sh
+3. sudo su -
+4. run deploy-redmine-server-staging1.sh
+5. reboot
+6. sudo su -
+7. run deploy-redmine-server-staging2.sh
+8. run deploy-redmine-plugins.sh

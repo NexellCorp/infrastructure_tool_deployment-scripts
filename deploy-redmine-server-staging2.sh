@@ -6,7 +6,7 @@ echo "=================================================="
 
 echo "install bundler ---->"
 cd /opt/redmine/redmine-2.5.2
-sudo su -
+#sudo su -
 bundle install --without development test
 echo "end"
 

@@ -13,9 +13,9 @@ echo "install dependency ---->"
 sudo apt-get install --yes build-essential libpcre3-dev libruby libssl-dev libcurl4-openssl-dev libpq-dev libreadline-dev libjpeg62-dev libpng12-dev curl openssl libreadline6 libreadline6-dev zlib1g zlib1g-dev libssl-dev libyaml-dev libsqlite3-dev sqlite3 libxml2-dev libxslt1-dev autoconf libc6-dev libncurses5-dev automake libtool bison pkg-config
 echo "end"
 
-echo "change to root ---->"
-sudo su -
-echo "end"
+#echo "change to root ---->"
+#sudo su -
+#echo "end"
 
 echo "install ruby ---->"
 curl -L https://get.rvm.io | sudo bash -s stable
