@@ -4,8 +4,6 @@ echo "=================================================="
 echo "          deploy redmine-plugins"
 echo "=================================================="
 
-sudo su -
-
 echo "install Agile ---->"
 cd /opt/redmine/redmine-2.5.2/plugins
 wget http://redminecrm.com/license_manager/13082/redmine_agile-1_3_2-light.zip
