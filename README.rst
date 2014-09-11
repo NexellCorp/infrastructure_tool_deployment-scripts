@@ -55,3 +55,4 @@ This script run on target machine
 3. run deploy-redmine-server-staging1.sh
 4. reboot
 5. run deploy-redmine-server-staging2.sh
+6. run deploy-redmine-plugins.sh
