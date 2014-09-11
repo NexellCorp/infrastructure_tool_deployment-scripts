@@ -42,3 +42,16 @@ This script run on target machine
    $ ./deploy-file-server.sh releases
    or
    $ ./deploy-file-server.sh snapshots
+
+Deployment redmine server
+=========================
+.. note::
+This script run on target machine
+1. install ubuntu-12.04 server
+2. get this script::
+   $ sudo apt-get update
+   $ sudo apt-get install git
+   $ git clone http://git.nexell.co.kr:8081/nexell/infrastructure/infrastructure-deployment-scripts
+3. run deploy-redmine-server-staging1.sh
+4. reboot
+5. run deploy-redmine-server-staging2.sh
