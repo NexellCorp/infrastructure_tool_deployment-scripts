@@ -47,14 +47,31 @@ Deployment redmine server
 =========================
 .. note::
 This script run on target machine
-1. install ubuntu-12.04 server
-2. get this script::
-   $ sudo apt-get update
-   $ sudo apt-get install git
-   $ git clone http://git.nexell.co.kr:8081/nexell/infrastructure/infrastructure-deployment-scripts
-3. sudo su -
-4. run deploy-redmine-server-staging1.sh
-5. reboot
-6. sudo su -
-7. run deploy-redmine-server-staging2.sh
-8. run deploy-redmine-plugins.sh
+1.  install ubuntu-12.04 server
+2.  get this script::
+    $ sudo apt-get update
+    $ sudo apt-get install git
+    $ sudo mkdir -p /srv/
+    $ sudo chown -R $(whoami):$(whoami) /srv
+    $ cd /srv
+    $ git clone http://git.nexell.co.kr:8081/nexell/infrastructure/infrastructure-deployment-scripts
+3.  change to root::
+    $ sudo su -
+4.  run deploy-redmine-server-staging1.sh::
+    $ /srv/infrastructure-deployment-scripts/deploy-redmine-server-staging1.sh
+5.  do next command::
+    $ su - postgres
+    $ /usr/bin/psql -f /srv/infrastructure-deployment-scripts/redmine-psql-command.txt
+    $ exit
+6.  run deploy-redmine-server-staging2.sh::
+    $ /srv/infrastructure-deployment-scripts/deploy-redmine-server-staging2.sh
+7.  reboot::
+    $ reboot
+8.  change to root::
+    $ sudo su -
+9.  run deploy-redmine-server-staging2.sh::
+    $ /srv/infrastructure-deployment-scripts/deploy-redmine-server-staging3.sh
+10. run deploy-redmine-plugins.sh::
+    $ /srv/infrastructure-deployment-scripts/deploy-redmine-plugins.sh
+11. run deploy-redmine-themes.sh::
+    $ /srv/infrastructure-deployment-scripts/deploy-redmine-themes.sh

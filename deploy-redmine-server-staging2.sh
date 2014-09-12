@@ -1,68 +1,21 @@
 #!/bin/bash
 
-echo "=================================================="
-echo "         deploy redmine-server staging2"
-echo "=================================================="
-
-echo "install bundler ---->"
-cd /opt/redmine/redmine-2.5.2
-#sudo su -
-bundle install --without development test
+echo "install pg ---->"
+gem install pg
 echo "end"
 
-pushd $(pwd)
-
-echo "install apache2 ---->"
-apt-get install apache2 apache2-prefork-dev
+echo "install imagemagick ---->"
+apt-get install imagemagick librmagick-ruby libmagickwand-dev
+gem install rmagick
 echo "end"
 
-echo "install passenger ---->"
-gem install passenger
-cd /usr/local/rvm/gems/ruby-2.0.0-p481/gems/passenger-4.0.50/
-./bin/passenger-install-apache2-module
-echo "<IfModule mod_passenger.c>" > /etc/apache2/mods-available/passenger.conf
-echo "   PassengerUser www-data" >> /etc/apache2/mods-available/passenger.conf
-echo "   PassengerDefaultUser www-data" >> /etc/apache2/mods-available/passenger.conf
-echo "   PassengerRoot /usr/local/rvm/gems/ruby-2.0.0-p481/gems/passenger-4.0.50" >> /etc/apache2/mods-available/passenger.conf
-echo "   PassengerDefaultRuby /usr/local/rvm/wrappers/ruby-2.0.0-p481/ruby" >> /etc/apache2/mods-available/passenger.conf
-echo "</IfModule>" >> /etc/apache2/mods-available/passenger.conf
-echo "LoadModule passenger_module /usr/local/rvm/gems/ruby-2.0.0-p481/gems/passenger-4.0.50/buildout/apache2/mod_passenger.so" > /etc/apache2/mods-available/passenger.load
-a2enmod passenger
+echo "get redmine ---->"
+mkdir -p /opt/redmine
+cd /opt/redmine
+wget https://github.com/redmine/redmine/archive/2.5.2.tar.gz
+tar xvzf 2.5.2.tar.gz
+cd redmine-2.5.2
+gem install bundler
 echo "end"
 
-echo "setup database ---->"
-cd /opt/redmine/redmine-2.5.2
-cat <<ENDOFCONF > config/database.yml
-production:
-    adapter: postgresql
-    database: redmine
-    host: localhost
-    username: redmine
-    password: rmsiddhk
-    encoding: utf8
-    schema_search_path: public
-ENDOFCONF
-echo "end"
-
-echo "extra work ---->"
-rake generate_secret_token
-RAILS_ENV=production rake db:migrate
-RAILS_ENV=production rake redmine:load_default_data
-mkdir public/plugin_assets
-chown -R www-data:www-data files log tmp public
-chmod -R 755 files log tmp public/plugin_assets
-chown -R www-data:www-data ./config/database.yml
-chmod 600 ./config/database.yml
-echo "end"
-
-echo "setup web ---->"
-cd /var/www
-ln -s /opt/redmine/redmine-2.5.2/public/ redmine
-popd
-cp redmine-apache-default /etc/apache2/sites-available/default
-a2ensite default
-service apache2 restart
-echo "end"
-
-ipaddr=$(ifconfig | awk -F':' '/inet addr/{print $2}' | awk -F' ' '{print $1}' | grep -v "127")
-"End of deploy remine ====> connect to http://${ipaddr}/redmine"
+echo "deploy staging2 end =====> reboot & run deploy-redmine-server-staging3.sh"

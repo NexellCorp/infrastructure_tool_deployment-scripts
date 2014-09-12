@@ -31,27 +31,3 @@ gem install rdoc
 gem install rails -v 3.2.13
 echo "end"
 
-echo "install PostgreSQL ---->"
-apt-get install postgresql
-su - postgres
-/usr/bin/psql -f redmine-psql-command.txt
-exit
-gem install pg
-echo "end"
-
-echo "install imagemagick ---->"
-apt-get install imagemagick librmagick-ruby libmagickwand-dev
-gem install rmagick
-echo "end"
-
-echo "get redmine ---->"
-mkdir -p /opt/redmine
-chown -R $(whoami):$(whoami) /opt/redmine
-cd /opt/redmine
-wget https://github.com/redmine/redmine/archive/2.5.2.tar.gz
-tar xvzf 2.5.2.tar.gz
-cd redmine-2.5.2
-gem install bundler
-echo "end"
-
-echo "deploy staging1 end =====> reboot & run deploy-redmine-server-staging2.sh"
