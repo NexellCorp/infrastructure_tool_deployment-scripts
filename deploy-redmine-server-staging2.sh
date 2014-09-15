@@ -1,8 +1,7 @@
 #!/bin/bash
 
-echo "install gem ---->"
-apt-get install --yes gem
-echo "end"
+source /etc/environment
+source /usr/local/rvm/scripts/rvm
 
 echo "install pg ---->"
 gem install pg
