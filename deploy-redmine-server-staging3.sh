@@ -62,7 +62,7 @@ echo "setup web ---->"
 cd /var/www
 ln -s /opt/redmine/redmine-2.5.2/public/ redmine
 popd
-cp redmine-apache-default /etc/apache2/sites-available/default
+cp /srv/infrastructure-deployment-scripts/redmine-apache-default /etc/apache2/sites-available/default
 a2ensite default
 service apache2 restart
 echo "end"
