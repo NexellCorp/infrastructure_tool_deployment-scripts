@@ -60,6 +60,7 @@ This script run on target machine
 4.  run deploy-redmine-server-staging1.sh::
     $ /srv/infrastructure-deployment-scripts/deploy-redmine-server-staging1.sh
 5.  do next command::
+    $ apt-get install postgresql postgresql-contrib
     $ su - postgres
     $ /usr/bin/psql -f /srv/infrastructure-deployment-scripts/redmine-psql-command.txt
     $ exit

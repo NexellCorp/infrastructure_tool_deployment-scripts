@@ -1,5 +1,9 @@
 #!/bin/bash
 
+echo "install gem ---->"
+apt-get install --yes gem
+echo "end"
+
 echo "install pg ---->"
 gem install pg
 echo "end"
