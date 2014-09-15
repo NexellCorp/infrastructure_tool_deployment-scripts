@@ -68,4 +68,4 @@ service apache2 restart
 echo "end"
 
 ipaddr=$(ifconfig | awk -F':' '/inet addr/{print $2}' | awk -F' ' '{print $1}' | grep -v "127")
-"End of deploy remine ====> connect to http://${ipaddr}/redmine"
+echo "End of deploy remine ====> connect to http://${ipaddr}/redmine"
