@@ -1,8 +1,11 @@
 #!/bin/bash
 
 echo "=================================================="
-echo "         deploy redmine-server staging2"
+echo "         deploy redmine-server staging3"
 echo "=================================================="
+
+source /etc/environment
+source /usr/local/rvm/scripts/rvm
 
 echo "install bundler ---->"
 cd /opt/redmine/redmine-2.5.2
