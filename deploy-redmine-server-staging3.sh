@@ -16,7 +16,7 @@ echo "end"
 pushd $(pwd)
 
 echo "install apache2 ---->"
-apt-get install apache2 apache2-prefork-dev
+apt-get install --yes apache2 apache2-prefork-dev
 echo "end"
 
 echo "install passenger ---->"
