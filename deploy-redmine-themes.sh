@@ -3,6 +3,9 @@
 REDMINE_HOME="/opt/redmine/redmine-2.5.2"
 REDMINE_PLUGINS_DIR="${REDMINE_HOME}/public/themes"
 
+source /etc/environment
+source /usr/local/rvm/scripts/rvm
+
 echo "=================================================="
 echo "          deploy redmine-themes"
 echo "=================================================="

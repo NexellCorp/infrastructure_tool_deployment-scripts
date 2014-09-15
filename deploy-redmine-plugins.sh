@@ -3,6 +3,9 @@
 REDMINE_HOME="/opt/redmine/redmine-2.5.2"
 REDMINE_PLUGINS_DIR="${REDMINE_HOME}/plugins"
 
+source /etc/environment
+source /usr/local/rvm/scripts/rvm
+
 function _go_plugin_dir()
 {
     cd ${REDMINE_PLUGINS_DIR}
@@ -27,6 +30,8 @@ function _restart_apache()
 echo "=================================================="
 echo "          deploy redmine-plugins"
 echo "=================================================="
+
+apt-get install --yes unzip
 
 echo "install Agile ---->"
 _go_plugin_dir
