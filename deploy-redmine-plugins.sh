@@ -76,6 +76,7 @@ echo "install Contacts ---->"
 _go_plugin_dir
 wget http://redminecrm.com/license_manager/12403/redmine_contacts-3_2_17-light.zip
 unzip redmine_contacts-3_2_17-light.zip
+bundle update acts-as-taggable-on
 _bundle
 _rake
 echo "end"
