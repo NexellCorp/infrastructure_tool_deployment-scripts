@@ -17,8 +17,8 @@ echo "end"
 
 echo "setup/install lava-deployment-tool ---->"
 cd lava-deployment-tool
-sudo ./lava-deployment-tool setup -nd
-sudo ./lava-deployment-tool install -nd development
+./lava-deployment-tool setup -nd
+./lava-deployment-tool install -nd development
 echo "end"
 
 echo "set up development source ---->"
