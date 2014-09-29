@@ -18,11 +18,13 @@ echo "end"
 echo "install lava-deployment-tool ---->"
 cd lava-deployment-tool
 ./lava-deployment-tool setup -nd
-LAVA_DB_PASSWORD=rmsiddhk LAVA_MASTER=192.168.1.231 ./lava-deployment-tool installworker lava-worker1
+SKIP_ROOT_CHECK=yes LAVA_DB_SERVER=192.168.1.231 LAVA_DB_NAME=lav-development LAVA_DB_USER=lava-development LAVA_DB_PASSWORD=rmsiddhk LAVA_REMOTE_FS_HOST=192.168.1.231 LAVA_REMOTE_FS_USER=nexell LAVA_REMOTE_FS_DIR=/srv/lava/instances/development LAVA_SERVER_IP=192.168.1.231 ./lava-deployment-tool installworker -nd lava-worker1
 echo "end"
 
 echo "set up development source ---->"
 cd $HOME
+git clone http://git.nexell.co.kr:8081/nexell/infrastructure/lava-server
 git clone http://git.nexell.co.kr:8081/nexell/infrastructure/lava-dispatcher
-/srv/lava/instances/development/bin/lava-develop-local ~/lava-dispatcher
+/srv/lava/instances/lava-worker1/bin/lava-develop-local ~/lava-server
+/srv/lava/instances/lava-worker1/bin/lava-develop-local ~/lava-dispatcher
 echo "end"
