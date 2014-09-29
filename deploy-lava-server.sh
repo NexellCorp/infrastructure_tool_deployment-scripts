@@ -18,7 +18,7 @@ echo "end"
 echo "setup/install lava-deployment-tool ---->"
 cd lava-deployment-tool
 ./lava-deployment-tool setup -nd
-./lava-deployment-tool install -nd development
+LAVA_DB_ALLOWREMOTE=yes LAVA_DB_PASSWORD=rmsiddhk ./lava-deployment-tool install -nd development
 echo "end"
 
 echo "set up development source ---->"
