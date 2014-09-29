@@ -14,6 +14,19 @@ This script run on target machine
    $ cd infrastructure-deployment-scripts
    $ ./deploy-lava-server.sh
 
+Deployment lava-worker
+======================
+.. note::
+This script run on target machine
+1. install ubuntu-12.04 server
+2. get this scripts::
+   $ sudo apt-get update
+   $ sudo apt-get install git
+   $ git clone http://git.nexell.co.kr:8081/nexell/infrastructure/infrastructure-deployment-scripts
+3. run deploy-lava-server.sh::
+   $ cd infrastructure-deployment-scripts
+   $ ./deploy-lava-worker.sh
+
 Deployment jenkins
 ==================
 .. note::
