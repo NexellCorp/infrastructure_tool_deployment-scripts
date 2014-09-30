@@ -27,4 +27,7 @@ git clone http://git.nexell.co.kr:8081/nexell/infrastructure/lava-server
 git clone http://git.nexell.co.kr:8081/nexell/infrastructure/lava-dispatcher
 /srv/lava/instances/lava-worker1/bin/lava-develop-local ~/lava-server
 /srv/lava/instances/lava-worker1/bin/lava-develop-local ~/lava-dispatcher
+
+sudo start lava-instance LAVA_INSTANCE=lava-worker1
+
 echo "end"
