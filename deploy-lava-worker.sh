@@ -37,7 +37,7 @@ sudo adduser nexell fuse
 
 mkdir -p /srv/lava/instances/development/etc/lava-dispatcher/devices /srv/lava/instances/development/etc/lava-dispatcher/device-types
 cp ~/lava-dispatcher/lava_dispatcher/default-config/lava-dispatcher/device-types/pyrope.conf device-types
-cp ~/lava-dispatcher/lava_dispatcher/nexell_test/devices/drone-nxp5430.conf devices
+cp ~/lava-dispatcher/nexell_test/devices/drone-nxp5430.conf devices
 
 sudo start lava-instance LAVA_INSTANCE=${INSTANCE_NAME}
 
