@@ -37,6 +37,10 @@ This script run on target machine
    $ sudo start lava-instance LAVA_INSTANCE=development
 7. check sshfs mount
 
+.. note::
+if you want to apply changed source, do this::
+    $ sudo service stop lava-instance LAVA_INSTANCE=development
+
 Deployment jenkins
 ==================
 .. note::
