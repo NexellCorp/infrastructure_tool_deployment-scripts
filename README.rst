@@ -23,7 +23,7 @@ This script run on target machine
    $ sudo apt-get update
    $ sudo apt-get install git
    $ git clone http://git.nexell.co.kr:8081/nexell/infrastructure/infrastructure-deployment-scripts
-3. run deploy-lava-server.sh::
+3. run deploy-lava-worker.sh::
    $ cd infrastructure-deployment-scripts
    $ ./deploy-lava-worker.sh
 4. setup sshfs
@@ -40,6 +40,48 @@ This script run on target machine
 .. note::
 if you want to apply changed source, do this::
     $ sudo service stop lava-instance LAVA_INSTANCE=development
+
+IP Setting for LAVA
+====================
+
+/etc/network/interfaces
+
+LAVA Server
+---------------------------------------------------------------------
+# This file describes the network interfaces available on your system
+# and how to activate them. For more information, see interfaces(5).
+
+# The loopback network interface
+auto lo
+iface lo inet loopback
+
+# The primary network interface
+auto eth0
+# iface eth0 inet dhcp
+iface eth0 inet static
+    address 192.168.1.18
+    netmask 255.255.255.0
+    gateway 192.168.1.254
+    dns-nameservers 168.126.63.1 168.126.63.2 8.8.8.8
+
+
+LAVA Worker
+---------------------------------------------------------------------
+# This file describes the network interfaces available on your system
+# and how to activate them. For more information, see interfaces(5).
+
+# The loopback network interface
+auto lo
+iface lo inet loopback
+
+# The primary network interface
+auto eth0
+#iface eth0 inet dhcp
+iface eth0 inet static
+address 192.168.1.19
+netmask 255.255.255.0
+gateway 192.168.1.254 
+dns-nameservers 168.126.63.1 168.126.63.2 8.8.8.8
 
 Deployment jenkins
 ==================
