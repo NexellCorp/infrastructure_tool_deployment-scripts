@@ -26,6 +26,16 @@ This script run on target machine
 3. run deploy-lava-server.sh::
    $ cd infrastructure-deployment-scripts
    $ ./deploy-lava-worker.sh
+4. setup sshfs
+   get lava worker id_rsa.pub file contents from install log
+   -------- WORKER NODE PUBLIC KEY STARTS HERE --------
+   copy contents to LAVA SERVER /home/nexell/.ssh/authorized_keys
+5. check sshfs mount::
+   $ df
+6. if not mounted, restart lava worker::
+   $ sudo stop lava-instance LAVA_INSTANCE=development
+   $ sudo start lava-instance LAVA_INSTANCE=development
+7. check sshfs mount
 
 Deployment jenkins
 ==================
