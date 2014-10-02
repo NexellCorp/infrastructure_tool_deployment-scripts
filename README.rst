@@ -41,6 +41,11 @@ This script run on target machine
 if you want to apply changed source, do this::
     $ sudo service stop lava-instance LAVA_INSTANCE=development
 
+.. warning::
+if sshfs mount failed, worker lava-scheduler not started, LAVA Server can't see LAVA Worker.
+Manually run /srv/lava/instances/development/sbin/mount-masterfs
+and, stop/start lava-instance
+
 IP Setting for LAVA
 ====================
 
