@@ -36,6 +36,9 @@ sudo chown $(whoami):$(whoami) /srv
 mkdir -p /srv/${DIR}
 echo "end"
 
+sudo apt-get install libapache2-mod-xsendfile
+sudo apt-get install libapache2-mod-wsgi
+
 echo "Get source and install requirements ---->"
 cd /srv/${DIR}
 git clone http://git.nexell.co.kr:8081/nexell/infrastructure/linaro-license-protection.git
@@ -46,6 +49,7 @@ echo "end"
 
 echo "Setup DB ---->"
 export PYTHONPATH=/srv/${DIR}:/srv/${DIR}/linaro-license-protection:/srv/${DIR}/configs/django
+export DJANGO_SETTINGS_MODULE="settings_snapshots"
 mkdir -p /srv/${DIR}/db
 django-admin.py syncdb --noinput
 django-admin.py collectstatic --noinput
