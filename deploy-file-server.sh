@@ -2,7 +2,7 @@
 
 TYPE=${1:-"releases"}
 
-test ${TYPS} == "r" && TYPE="releases" || TYPE="snapshots"
+test ${TYPE} == "r" && TYPE="releases" || TYPE="snapshots"
 
 #if [ ${TYPE} == "r" ]
 #then
