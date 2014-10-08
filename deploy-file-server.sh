@@ -51,12 +51,12 @@ echo "end"
 
 echo "Setup DB ---->"
 export PYTHONPATH=/srv/${DIR}:/srv/${DIR}/linaro-license-protection:/srv/${DIR}/configs/django
-export DJANGO_SETTINGS_MODULE="settings_snapshots"
+export DJANGO_SETTINGS_MODULE="settings_${TYPE}"
 mkdir -p /srv/${DIR}/db
 sudo chown nexell:www-data /srv/${DIR}/db
 sudo chmod 775 /srv/${DIR}/db
 django-admin.py syncdb
-python /srv/${DIR}/linaro-license-protections/manage.py migrate license_protected_downloads 0001 --fake --settings="settings_snapshots" && touch /srv/${DIR}/db/.south-setup
+python /srv/${DIR}/linaro-license-protections/manage.py migrate license_protected_downloads 0001 --fake --settings="settings_${TYPE}" && touch /srv/${DIR}/db/.south-setup
 django-admin.py migrate
 django-admin.py collectstatic
 sudo chown -R nexell:www-data /srv/${DIR}/linaro-license-protection

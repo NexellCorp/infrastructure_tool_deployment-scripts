@@ -116,6 +116,11 @@ This script run on target machine
    $ ./deploy-file-server.sh releases
    or
    $ ./deploy-file-server.sh snapshots
+4. add apikey to db::
+   connect http://192.168.1.18:8080/admin
+   add ApiKeyStore->key : 1234abcd
+5. Upload::
+   $ python linaro-cp.py -k 1234abcd --server 192.168.1.18:8080/ source_directory target_directory
 
 Deployment redmine server
 =========================
