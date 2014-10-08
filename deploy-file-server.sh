@@ -34,8 +34,8 @@ echo "Setup install directory ---->"
 #sudo chown -R $(whoami):$(whoami) /srv
 sudo chown $(whoami):$(whoami) /srv
 mkdir -p /srv/${DIR}
-sudo chown www-data:www-data /srv/${DIR}
-sudo chmod 755 /srv/${DIR}
+sudo chown nexell:www-data /srv/${DIR}
+sudo chmod 775 /srv/${DIR}
 echo "end"
 
 sudo apt-get install libapache2-mod-xsendfile
@@ -53,14 +53,14 @@ echo "Setup DB ---->"
 export PYTHONPATH=/srv/${DIR}:/srv/${DIR}/linaro-license-protection:/srv/${DIR}/configs/django
 export DJANGO_SETTINGS_MODULE="settings_snapshots"
 mkdir -p /srv/${DIR}/db
-sudo chown www-data:www-data /srv/${DIR}/db
-sudo chmod 755 /srv/${DIR}/db
+sudo chown nexell:www-data /srv/${DIR}/db
+sudo chmod 775 /srv/${DIR}/db
 django-admin.py syncdb
 python /srv/${DIR}/linaro-license-protections/manage.py migrate license_protected_downloads 0001 --fake --settings="settings_snapshots" && touch /srv/${DIR}/db/.south-setup
 django-admin.py migrate
 django-admin.py collectstatic
-sudo chown -R www-data:www-data /srv/${DIR}/linaro-license-protection
-sudo chown -R www-data:www-data /srv/${DIR}/configs
+sudo chown -R nexell:www-data /srv/${DIR}/linaro-license-protection
+sudo chown -R nexell:www-data /srv/${DIR}/configs
 echo "end"
 
 echo "Setup apache2 ---->"
