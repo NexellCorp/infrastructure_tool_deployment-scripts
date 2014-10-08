@@ -62,6 +62,7 @@ django-admin.py collectstatic
 sudo chown -R nexell:www-data /srv/${DIR}/linaro-license-protection
 sudo chown -R nexell:www-data /srv/${DIR}/configs
 sudo chmod 664 /srv/${DIR}/db/licenses.db
+sudo chown nexell:www-data /srv/${DIR}/db/licenses.db
 echo "end"
 
 echo "Setup apache2 ---->"
