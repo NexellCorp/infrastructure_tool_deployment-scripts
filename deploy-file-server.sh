@@ -73,6 +73,7 @@ echo "end"
 
 echo "Create file dir ---->"
 mkdir -p /srv/${DIR}/www
+sudo chown nexell:www-data /srv/${DIR}/www
 echo "end"
 
 echo "Reload apache2 ---->"
