@@ -69,7 +69,6 @@ iface eth0 inet static
     gateway 192.168.1.254
     dns-nameservers 168.126.63.1 168.126.63.2 8.8.8.8
 
-
 LAVA Worker
 ---------------------------------------------------------------------
 # This file describes the network interfaces available on your system
@@ -91,6 +90,19 @@ dns-nameservers 168.126.63.1 168.126.63.2 8.8.8.8
 Deployment jenkins
 ==================
 .. note::
+This script run on target machine
+1. install ubuntu-14.04 server
+2. get this scripts::
+   $ sudo apt-get update
+   $ sudo apt-get install git
+   $ git clone http://git.nexell.co.kr:8081/nexell/infrastructure/infrastructure-deployment-scripts
+3. run deploy-jenkins.sh::
+   $ cd infrastructure-deployment-scripts
+   $ ./deploy-jenkins.sh
+
+Deployment jenkins with linaro jenkins tool(Deprecated)
+=======================================================
+.. note::
 This script run on host machine through ssh to target machine
 1. install ubuntu-14.04 server
 2. get jenkins-tools::
@@ -101,7 +113,7 @@ This script run on host machine through ssh to target machine
    [vagrant]
    localhost:2222 ===> target machine ip
 5. run next command::
-   $ ansible-playbook -i hosts-devel-tcwg-ci -l "tcwg-ci:&vagrant" site.yml
+   $ ansible-playbook -i hosts-devel-tcwg-ci -l "tcwg-ci:&vagrant" --ask-sudo-pass site.yml
 
 Deployment file server
 ======================
