@@ -32,13 +32,17 @@ This script run on target machine
    copy contents to LAVA SERVER /home/nexell/.ssh/authorized_keys
 5. check sshfs mount::
    $ df
-6. if not mounted, restart lava worker::
+6. if not mounted, mount and restart lava worker::
    $ sudo stop lava-instance LAVA_INSTANCE=development
+   $ /srv/lava/instances/development/sbin/mount-masterfs
    $ sudo start lava-instance LAVA_INSTANCE=development
 7. check sshfs mount
 
 .. note::
 if you want to apply changed source, do this::
+    $ cd ~/lava-dispatcher
+    $ git pull
+    $ /srv/lava/instances/development/bin/lava-develop-local ~/lava-dispatcher
     $ sudo service stop lava-instance LAVA_INSTANCE=development
 
 .. warning::
